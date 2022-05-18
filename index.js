@@ -1,4 +1,6 @@
 const express = require("express");
+  morgan = require("morgan");
+
 const app = express();
 
 let topMovies = [
@@ -16,6 +18,11 @@ let topMovies = [
   },
 ];
 
+// APP USES
+app.use(morgan("common"));
+
+app.use(express.static("public"));
+
 //GET REQUESTS
 
 app.get("/", (req, res) => {
@@ -25,9 +32,6 @@ app.get("/", (req, res) => {
 app.get("/movies", (req, res) => {
   res.json(topMovies);
 });
-
-// APP USES
-app.use(express.static("public"));
 
 // LISTEN FOR REQUESTS
 app.listen(8080, () => {
