@@ -17,6 +17,11 @@ let topMovies = [
 ];
 
 //GET REQUESTS
+
+app.get("/", (req, res) => {
+  res.send("Welcome to my Movie App!");
+});
+
 app.get("/movies", (req, res) => {
   res.json(topMovies);
 });
