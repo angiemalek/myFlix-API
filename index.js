@@ -23,12 +23,6 @@ app.use(morgan("common"));
 
 app.use(express.static("public"));
 
-// ERROR EVENT HANDLER
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Something is broken!");
-});
-
 //GET REQUESTS
 
 app.get("/", (req, res) => {
@@ -38,6 +32,13 @@ app.get("/", (req, res) => {
 app.get("/movies", (req, res) => {
   res.json(topMovies);
 });
+
+// ERROR EVENT HANDLER
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something is broken!");
+});
+
 
 // LISTEN FOR REQUESTS
 app.listen(8080, () => {
