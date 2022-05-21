@@ -1,7 +1,12 @@
 const express = require("express");
+  bodyParser = require("body-parser");
   morgan = require("morgan");
+  uuid = require("uuid");
 
 const app = express();
+
+// USE BODY PARSER
+app.use(bodyParser.json());
 
 let topMovies = [
   {
