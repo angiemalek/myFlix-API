@@ -22,16 +22,34 @@ let users = [
 
 let topMovies = [
   {
-    title: "",
-    director: ""
+    title: "The Dawn Wall",
+    year: "2017",
+    genre: "Documentary",
+    director: "Josh Lowell"
   },
   {
-    title: "",
-    director: ""
+    title: "Mr. Brooks",
+    year: "2007",
+    genre: "Drama",
+    director: "Bruce A. Evans"
   },
   {
-    title: "",
-    director: ""
+    title: "Grandma's Boy",
+    year: "2006",
+    genre: "Comedy",
+    director: "Nicholaus Goosen"
+  },
+  {
+    title: "True Lies",
+    year: "1994",
+    genre: "Action",
+    director: "James Cameron"
+  },
+  {
+    title: "Honey, I Shrunk The Kids",
+    year: "1989",
+    genre: "Adventure",
+    director: "Joe Johnston"
   },
 ];
 
