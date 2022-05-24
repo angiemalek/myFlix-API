@@ -22,60 +22,60 @@ let users = [
 ];
 
 // MOVIE DATA
-let topMovies = [
+let movies = [
   {
-    title: "The Dawn Wall",
-    year: "2017",
-    genre: "Documentary",
-    director: "Josh Lowell"
+    "Title": "The Dawn Wall",
+    "Year": "2017",
+    "Genre": "Documentary",
+    "Director": "Josh Lowell"
   },
   {
-    title: "Mr. Brooks",
-    year: "2007",
-    genre: "Drama",
-    director: "Bruce A. Evans"
+    "Title": "Mr. Brooks",
+    "Year": "2007",
+    "Genre": "Drama",
+    "Director": "Bruce A. Evans"
   },
   {
-    title: "Grandma's Boy",
-    year: "2006",
-    genre: "Comedy",
-    director: "Nicholaus Goosen"
+    "Title": "Grandma's Boy",
+    "Year": "2006",
+    "Genre": "Comedy",
+    "Director": "Nicholaus Goosen"
   },
   {
-    title: "True Lies",
-    year: "1994",
-    genre: "Action",
-    director: "James Cameron"
+    "Title": "True Lies",
+    "Year": "1994",
+    "Genre": "Action",
+    "Director": "James Cameron"
   },
   {
-    title: "Honey, I Shrunk The Kids",
-    year: "1989",
-    genre: "Adventure",
-    director: "Joe Johnston"
+    "Title": "Honey, I Shrunk The Kids",
+    "Year": "1989",
+    "Genre": "Adventure",
+    "Director": "Joe Johnston"
   },
 ];
 
 // GENRE DATA
 let genres = [
   {
-    genre: "Documentary",
-    description: "A documentary is a non-fictional motion-picture intended to document reality, primarily for the purposes of instruction, education or maintaining a historical record."
+    "Genre": "Documentary",
+    "Description": "A documentary is a non-fictional motion-picture intended to document reality, primarily for the purposes of instruction, education or maintaining a historical record."
   },
   {
-    genre: "Drama",
-    description: "A drama is a category or genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone."
+    "Genre": "Drama",
+    "Description": "A drama is a category or genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone."
   },
   {
-    genre: "Comedy",
-    description: "A comedy film is a category of film which emphasizes humor. These films are designed to make the audience laugh through amusement."
+    "Genre": "Comedy",
+    "Description": "A comedy film is a category of film which emphasizes humor. These films are designed to make the audience laugh through amusement."
   },
   {
-    genre: "Action",
-    description: "Action film is a film genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, and frantic chases."
+    "Genre": "Action",
+    "Description": "Action film is a film genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, and frantic chases."
   },
   {
-    genre: "Adventure",
-    description: "An adventure film is form of adventure fiction, and is a genre of film. Subgenres of adventure films include swashbuckler films, pirate films, and survival films. Adventure films may also be combined with other film genres such as action, animation, comedy, drama, fantasy, science fiction, family, horror, or war"
+    "Genre": "Adventure",
+    "Description": "An adventure film is form of adventure fiction, and is a genre of film. Subgenres of adventure films include swashbuckler films, pirate films, and survival films. Adventure films may also be combined with other film genres such as action, animation, comedy, drama, fantasy, science fiction, family, horror, or war"
   },
 ];
 
@@ -120,7 +120,29 @@ app.get("/", (req, res) => {
 });
 
 app.get("/movies", (req, res) => {
-  res.json(topMovies);
+  res.status(200).json(topMovies);
+});
+
+app.get("/movies/:title", (req, res) => {
+  const { title } = req.params;
+  const movie = movies.find( movie => movie.Title === title );
+
+  if (movie) {
+    res.status(200).json(movie);
+  } else {
+    res.status(400).send("No such movie")
+  }
+});
+
+app.get("/movies/genre/:genreName", (req, res) => {
+  const { genreName } = req.params;
+  const genre = movies.find( movie => movie.Genre.Name === genreName );
+
+  if (genre) {
+    res.status(200).json(genre);
+  } else {
+    res.status(400).send("No such genre")
+  }
 });
 
 // ERROR EVENT HANDLER
