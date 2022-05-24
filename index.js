@@ -8,6 +8,18 @@ const app = express();
 // USE BODY PARSER
 app.use(bodyParser.json());
 
+let users = [
+  {
+    id: 1,
+    name: "Richard",
+  },
+
+  {
+    id: 2,
+    name: "Betty",
+  },
+];
+
 let topMovies = [
   {
     title: "",
