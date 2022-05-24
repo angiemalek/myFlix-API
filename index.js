@@ -82,29 +82,29 @@ let genres = [
 // DIRECTOR DATA
 let directors = [
   {
-    name: "Joe Johnston",
-    birthyear: 1950,
-    bio: "Joseph Eggleston Johnston II is an American film director from Texas who is known for directing the cult classic film The Rocketeer, Jumanji, Honey, I Shrunk the Kids, The Wolfman, October Sky, The Pagemaster, Jurassic Park III and Captain America: The First Avenger. He was an art director for Raiders of the Lost Ark and the Star Wars original trilogy."
+    "Name": "Joe Johnston",
+    "Birthyear": 1950,
+    "Bio": "Joseph Eggleston Johnston II is an American film director from Texas who is known for directing the cult classic film The Rocketeer, Jumanji, Honey, I Shrunk the Kids, The Wolfman, October Sky, The Pagemaster, Jurassic Park III and Captain America: The First Avenger. He was an art director for Raiders of the Lost Ark and the Star Wars original trilogy."
   },
   {
-    name: "James Cameron",
-    birthyear: 1954,
-    bio: "James Francis Cameron was born on August 16, 1954 in Kapuskasing, Ontario, Canada. He moved to the United States in 1971. The son of an engineer, he majored in physics at California State University before switching to English, and eventually dropping out. He then drove a truck to support his screenwriting ambition."
+    "Name": "James Cameron",
+    "Birthyear": 1954,
+    "Bio": "James Francis Cameron was born on August 16, 1954 in Kapuskasing, Ontario, Canada. He moved to the United States in 1971. The son of an engineer, he majored in physics at California State University before switching to English, and eventually dropping out. He then drove a truck to support his screenwriting ambition."
   },
   {
-    name: "Nicholaus Goosen",
-    birthyear: 1978,
-    bio: "Nicholaus Goossen is a director and producer, known for Grandma's Boy (2006), Sugar and Toys (2019) and Hot for My Name (2020)."
+    "Name": "Nicholaus Goosen",
+    "Birthyear": 1978,
+    "Bio": "Nicholaus Goossen is a director and producer, known for Grandma's Boy (2006), Sugar and Toys (2019) and Hot for My Name (2020)."
   },
   {
-    name: "Bruce A. Evans",
-    birthyear: 1946,
-    bio: "Bruce Evans was born on June 26, 1902. He was an actor, known for Back Door to Heaven (1939), The Prisoner of Swing (1938) and Flowers from the Sky (1937). He died on February 9, 1978 in Harrison, Maine, USA."
+    "Name": "Bruce A. Evans",
+    "Birthyear": 1946,
+    "Bio": "Bruce Evans was born on June 26, 1902. He was an actor, known for Back Door to Heaven (1939), The Prisoner of Swing (1938) and Flowers from the Sky (1937). He died on February 9, 1978 in Harrison, Maine, USA."
   },
   {
-    name: "Josh Lowell",
-    birthyear: 1972,
-    bio: "Josh Lowell is the founder of Big UP Productions and has been producing and directing climbing and outdoor adventure films for nearly 20 years. A passionate climber himself, Lowell and his brother, Brett Lowell, spent seven years documenting Tommy Caldwell’s quest to climb the Dawn Wall, including over 60 days of filming while living on the wall with the climbers. "
+    "Name": "Josh Lowell",
+    "Birthyear": 1972,
+    "Bio": "Josh Lowell is the founder of Big UP Productions and has been producing and directing climbing and outdoor adventure films for nearly 20 years. A passionate climber himself, Lowell and his brother, Brett Lowell, spent seven years documenting Tommy Caldwell’s quest to climb the Dawn Wall, including over 60 days of filming while living on the wall with the climbers. "
   },
 ];
 
@@ -120,7 +120,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/movies", (req, res) => {
-  res.status(200).json(topMovies);
+  res.status(200).json(movies);
 });
 
 app.get("/movies/:title", (req, res) => {
@@ -132,7 +132,7 @@ app.get("/movies/:title", (req, res) => {
   } else {
     res.status(400).send("No such movie")
   }
-});
+})
 
 app.get("/movies/genre/:genreName", (req, res) => {
   const { genreName } = req.params;
