@@ -79,6 +79,35 @@ let genres = [
   },
 ];
 
+// DIRECTOR DATA
+let directors = [
+  {
+    name: "Joe Johnston",
+    birthyear: 1950,
+    bio: "Joseph Eggleston Johnston II is an American film director from Texas who is known for directing the cult classic film The Rocketeer, Jumanji, Honey, I Shrunk the Kids, The Wolfman, October Sky, The Pagemaster, Jurassic Park III and Captain America: The First Avenger. He was an art director for Raiders of the Lost Ark and the Star Wars original trilogy."
+  },
+  {
+    name: "James Cameron",
+    birthyear: 1954,
+    bio: "James Francis Cameron was born on August 16, 1954 in Kapuskasing, Ontario, Canada. He moved to the United States in 1971. The son of an engineer, he majored in physics at California State University before switching to English, and eventually dropping out. He then drove a truck to support his screenwriting ambition."
+  },
+  {
+    name: "Nicholaus Goosen",
+    birthyear: 1978,
+    bio: "Nicholaus Goossen is a director and producer, known for Grandma's Boy (2006), Sugar and Toys (2019) and Hot for My Name (2020)."
+  },
+  {
+    name: "Bruce A. Evans",
+    birthyear: 1946,
+    bio: "Bruce Evans was born on June 26, 1902. He was an actor, known for Back Door to Heaven (1939), The Prisoner of Swing (1938) and Flowers from the Sky (1937). He died on February 9, 1978 in Harrison, Maine, USA."
+  },
+  {
+    name: "Josh Lowell",
+    birthyear: 1972,
+    bio: "Josh Lowell is the founder of Big UP Productions and has been producing and directing climbing and outdoor adventure films for nearly 20 years. A passionate climber himself, Lowell and his brother, Brett Lowell, spent seven years documenting Tommy Caldwell’s quest to climb the Dawn Wall, including over 60 days of filming while living on the wall with the climbers. "
+  },
+];
+
 // APP USES
 app.use(morgan("common"));
 
