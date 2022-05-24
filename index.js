@@ -118,12 +118,14 @@ app.get("/", (req, res) => {
   res.send("Welcome to my Movie App!");
 });
 
+// READ: GET LIST OF ALL MOVIES
 app.get("/movies", (req, res) => {
   res.status(200).json(movies);
 });
 
+// READ: GET ONE MOVIE BY TITLE
 app.get("/movies/:title", (req, res) => {
-  const { title } = req.params;
+  const {title} = req.params;
   const movie = movies.find( movie => movie.Title === title );
 
   if (movie) {
@@ -133,16 +135,17 @@ app.get("/movies/:title", (req, res) => {
   }
 })
 
-app.get("/movies/genre/:genreName", (req, res) => {
+//READ: GET GENRE INFO BY GENRE NAME
+app.get("/genres/:genreName", (req, res) => {
   const { genreName } = req.params;
-  const genre = movies.find( movie => movie.Genre.Name === genreName );
+  const genre = genres.find( genree => genre.Genre === genreName ).Description;
 
   if (genre) {
     res.status(200).json(genre);
   } else {
     res.status(400).send("No such genre")
   }
-});
+})
 
 // ERROR EVENT HANDLER
 app.use((err, req, res, next) => {
