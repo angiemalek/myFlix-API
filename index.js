@@ -138,14 +138,14 @@ app.get("/movies/:title", (req, res) => {
 //READ: GET GENRE INFO BY GENRE NAME
 app.get("/genres/:genreName", (req, res) => {
   const {genreName} = req.params;
-  const genre = genres.find( genre => genre.Genre === genreName ).Description;
+  const genre = genres.find( genre => genres.Genre === genreName).Description;
 
   if (genre) {
     res.status(200).json(genre);
   } else {
-    res.status(400).send("No such genre")
+  res.status(400).send("No such genre")
   }
-})
+});
 
 //READ: GET DIRECTOR INFO BY NAME
 app.get("/directors/:directorsName", (req, res) => {
