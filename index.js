@@ -137,8 +137,8 @@ app.get("/movies/:title", (req, res) => {
 
 //READ: GET GENRE INFO BY GENRE NAME
 app.get("/genres/:genreName", (req, res) => {
-  const { genreName } = req.params;
-  const genre = genres.find( genree => genre.Genre === genreName ).Description;
+  const {genreName} = req.params;
+  const genre = genres.find( genre => genre.Genre === genreName ).Description;
 
   if (genre) {
     res.status(200).json(genre);
