@@ -147,6 +147,18 @@ app.get("/genres/:genreName", (req, res) => {
   }
 })
 
+//READ: GET DIRECTOR INFO BY NAME
+app.get("/directors/:directorsName", (req, res) => {
+  const {directorsName} = req.params;
+  const info = directors.find( director => director.name === directorsName )
+
+  if (info) {
+    res.status(200).json(info);
+  } else {
+    res.status(400).send("No such director")
+  }
+})
+
 // ERROR EVENT HANDLER
 app.use((err, req, res, next) => {
   console.error(err.stack);
