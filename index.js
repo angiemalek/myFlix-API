@@ -6,7 +6,11 @@ const express = require("express");
 const app = express();
 
 // USE BODY PARSER
+app.use(morgan("common"));
+
 app.use(bodyParser.json());
+
+app.use(express.static("public"));
 
 // USER DATA
 let users = [
@@ -107,11 +111,6 @@ let directors = [
     "Bio": "Josh Lowell is the founder of Big UP Productions and has been producing and directing climbing and outdoor adventure films for nearly 20 years. A passionate climber himself, Lowell and his brother, Brett Lowell, spent seven years documenting Tommy Caldwell’s quest to climb the Dawn Wall, including over 60 days of filming while living on the wall with the climbers. "
   },
 ];
-
-// APP USES
-app.use(morgan("common"));
-
-app.use(express.static("public"));
 
 //GET REQUESTS
 
