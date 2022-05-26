@@ -105,6 +105,19 @@ app.get("/", (req, res) => {
   res.send("Welcome to my Movie App!");
 });
 
+// CREATE NEW USER
+app.post("/users", (req, res) => {
+  const newUser = req.body;
+
+  if (newUser.name) {
+    newUser.id = uuid.v4();
+    users.push(newUser);
+    res.status(201).json(newUser)
+  } else {
+    res.status(400).send("users need names");
+  }
+})
+
 // READ: GET LIST OF ALL MOVIES
 app.get("/movies", (req, res) => {
   res.status(200).json(movies);
@@ -124,7 +137,7 @@ app.get("/movies/:title", (req, res) => {
 
 //READ: GET GENRE INFO BY GENRE NAME
 app.get("/movies/genre/:genreName", (req, res) => {
-  const { genreName } = req.params;
+  const {genreName} = req.params;
   const genre = movies.find((movie) => movie.Genre.Name === genreName).Genre;
 
   if (genre) {
@@ -132,12 +145,12 @@ app.get("/movies/genre/:genreName", (req, res) => {
   } else {
   res.status(400).send("No such genre")
   }
-});
+})
 
 //READ: GET DIRECTOR INFO BY NAME
-app.get("/directors/:directorsName", (req, res) => {
-  const { directorsName } = req.params;
-  const director = movies.find((movie) => movie.Director.Name === directorsName).Director;
+app.get("/movies/director/:directorName", (req, res) => {
+  const {directorName} = req.params;
+  const director = movies.find((movie) => movie.Director.Name === directorName).Director;
 
   if (director) {
     res.status(200).json(director);
