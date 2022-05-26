@@ -99,9 +99,6 @@ let movies = [
 ];
 
 
-
-
-
 //GET REQUESTS
 
 app.get("/", (req, res) => {
@@ -126,7 +123,7 @@ app.get("/movies/:title", (req, res) => {
 })
 
 //READ: GET GENRE INFO BY GENRE NAME
-app.get("/genres/:genreName", (req, res) => {
+app.get("/movies/genre/:genreName", (req, res) => {
   const { genreName } = req.params;
   const genre = movies.find((movie) => movie.Genre.Name === genreName).Genre;
 
