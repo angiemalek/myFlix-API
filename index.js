@@ -32,17 +32,12 @@ let movies = [
     "Year": "2017",
     "Genre": {
       "Name": "Documentary",
-      "Description":
-        "A documentary is a non-fictional motion-picture intended to
-        document reality, primarily for the purposes of instruction, education or maintaining a historical record."
+      "Description":"A documentary is a non-fictional motion-picture intended to portray reality, primarily for the purposes of instruction, education or maintaining a historical record."
     },
     "Director": {
       "Name": "Josh Lowell",
       "Birthyear": 1972,
-      "Bio": "Josh Lowell is the founder of Big UP Productions and has been producing and directing climbing and outdoor
-       adventure films for nearly 20 years. A passionate climber himself, Lowell and his brother, Brett Lowell, spent
-       seven years documenting Tommy Caldwell’s quest to climb the Dawn Wall, including over 60 days of filming while
-       living on the wall with the climbers. "
+      "Bio": "Josh Lowell is the founder of Big UP Productions and has been producing and directing climbing and outdoor adventure films for nearly 20 years. A passionate climber himself, Lowell and his brother, Brett Lowell, spent seven years documenting Tommy Caldwell’s quest to climb the Dawn Wall, including over 60 days of filming while living on the wall with the climbers. "
   },
 },
 
@@ -56,8 +51,7 @@ let movies = [
     "Director": {
       "Name": "Bruce A. Evans",
       "Birthyear": 1946,
-      "Bio": "Bruce Evans was born on June 26, 1902. He was an actor, known for Back Door to Heaven (1939), The Prisoner of Swing (1938) and
-      Flowers from the Sky (1937). He died on February 9, 1978 in Harrison, Maine, USA."
+      "Bio": "Bruce Evans was born on June 26, 1902. He was an actor, known for Back Door to Heaven (1939), The Prisoner of Swing (1938) and Flowers from the Sky (1937). He died on February 9, 1978 in Harrison, Maine, USA."
   },
 },
 
@@ -80,15 +74,12 @@ let movies = [
     "Year": "1994",
     "Genre": {
       "Name": "Action",
-      "Description": "Action film is a film genre in which the protagonist or protagonists are thrust into a series of events that typically include
-      violence, extended fighting, physical feats, and frantic chases."
+      "Description": "Action film is a film genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, and frantic chases."
     },
     "Director": {
       "Name": "James Cameron",
       "Birthyear": 1954,
-      "Bio": "James Francis Cameron was born on August 16, 1954 in Kapuskasing, Ontario, Canada. He moved to the United States in 1971. The son of an
-      engineer, he majored in physics at California State University before switching to English, and eventually dropping out. He then drove a truck
-     to support his screenwriting ambition."
+      "Bio": "James Francis Cameron was born on August 16, 1954 in Kapuskasing, Ontario, Canada. He moved to the United States in 1971. The son of an engineer, he majored in physics at California State University before switching to English, and eventually dropping out. He then drove a truck to support his screenwriting ambition."
   },
 },
 
@@ -97,16 +88,12 @@ let movies = [
     "Year": "1989",
     "Genre": {
       "Name": "Adventure",
-      "Description": "An adventure film is form of adventure fiction, and is a genre of film. Subgenres of adventure films include swashbuckler films,
-      pirate films, and survival films. Adventure films may also be combined with other film genres such as action, animation, comedy, drama, fantasy,
-      science fiction, family, horror, or war."
+      "Description": "An adventure film is form of adventure fiction, and is a genre of film. Subgenres of adventure films include swashbuckler films, pirate films, and survival films. Adventure films may also be combined with other film genres such as action, animation, comedy, drama, fantasy, science fiction, family, horror, or war."
     },
     "Director": {
       "Name": "Joe Johnston",
       "Birthyear": 1950,
-      "Bio": "Joseph Eggleston Johnston II is an American film director from Texas who is known for directing the cult classic film The Rocketeer, Jumanji,
-      Honey, I Shrunk the Kids, The Wolfman, October Sky, The Pagemaster, Jurassic Park III and Captain America: The First Avenger. He was an art director
-      for Raiders of the Lost Ark and the Star Wars original trilogy."
+      "Bio": "Joseph Eggleston Johnston II is an American film director from Texas who is known for directing the cult classic film The Rocketeer, Jumanji, Honey, I Shrunk the Kids, The Wolfman, October Sky, The Pagemaster, Jurassic Park III and Captain America: The First Avenger. He was an art director for Raiders of the Lost Ark and the Star Wars original trilogy."
     },
   },
 ];
@@ -141,7 +128,7 @@ app.get("/movies/:title", (req, res) => {
 //READ: GET GENRE INFO BY GENRE NAME
 app.get("/genres/:genreName", (req, res) => {
   const { genreName } = req.params;
-  const genre = movies.find((movie) => movie.Genre.Name ===genreName).Genre;
+  const genre = movies.find((movie) => movie.Genre.Name === genreName).Genre;
 
   if (genre) {
     res.status(200).json(genre);
@@ -156,7 +143,7 @@ app.get("/directors/:directorsName", (req, res) => {
   const director = movies.find((movie) => movie.Director.Name === directorsName).Director;
 
   if (director) {
-    res.status(200).json(info);
+    res.status(200).json(director);
   } else {
     res.status(400).send("No such director")
   }
