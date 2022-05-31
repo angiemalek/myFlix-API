@@ -23,6 +23,11 @@ let users = [
     id: 2,
     name: "Betty",
   },
+
+  {
+    id:3,
+    name: "Mark",
+  }
 ];
 
 // MOVIE DATA
