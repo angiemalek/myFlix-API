@@ -25,7 +25,7 @@ let users = [
   },
 
   {
-    id:3,
+    id: 3,
     name: "Mark",
   }
 ];
