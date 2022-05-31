@@ -30,6 +30,7 @@ let movies = [
   {
     "Title": "The Dawn Wall",
     "Year": "2017",
+    "About": "In an unbelievable story of perseverance, free climber Tommy Caldwell and climbing partner Kevin Jorgeson attempt to scale the impossible 3000ft Dawn Wall of El Capitan.",
     "Genre": {
       "Name": "Documentary",
       "Description":"A documentary is a non-fictional motion-picture intended to portray reality, primarily for the purposes of instruction, education or maintaining a historical record."
@@ -44,6 +45,7 @@ let movies = [
   {
     "Ttle": "Mr. Brooks",
     "Year": "2007",
+    "About": "A well-respected businessman is sometimes controlled by his murder and mayhem-loving alter ego.",
     "Genre": {
       "Name": "Drama",
       "Description": "A drama is a category or genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone."
@@ -58,6 +60,7 @@ let movies = [
   {
     "Title": "Grandma's Boy",
     "Year": "2006",
+    "About": "A thirty-five-year-old video game tester has to move in with his grandma and her two old lady roommates.",
     "Genre": {
       "Name": "Comedy",
       "Description": "A comedy film is a category of film which emphasizes humor. These films are designed to make the audience laugh through amusement."
@@ -72,6 +75,7 @@ let movies = [
   {
     "Title": "True Lies",
     "Year": "1994",
+    "About": "A fearless, globe-trotting, terrorist-battling secret agent has his life turned upside down when he discovers his wife might be having an affair with a used-car salesman while terrorists smuggle nuclear war heads into the United States.",
     "Genre": {
       "Name": "Action",
       "Description": "Action film is a film genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, and frantic chases."
@@ -86,6 +90,7 @@ let movies = [
   {
     "Title": "Honey, I Shrunk The Kids",
     "Year": "1989",
+    "About": "The scientist father of a teenage girl and boy accidentally shrinks his and two other neighborhood teens to the size of insects. Now the teens must fight diminutive dangers as the father searches for them.",
     "Genre": {
       "Name": "Adventure",
       "Description": "An adventure film is form of adventure fiction, and is a genre of film. Subgenres of adventure films include swashbuckler films, pirate films, and survival films. Adventure films may also be combined with other film genres such as action, animation, comedy, drama, fantasy, science fiction, family, horror, or war."
