@@ -58,7 +58,7 @@ let movies = [
     "Director": {
       "Name": "Bruce A. Evans",
       "Birthyear": 1946,
-      "Bio": "Bruce Evans was born on June 26, 1902. He was an actor, known for Back Door to Heaven (1939), The Prisoner of Swing (1938) and Flowers from the Sky (1937). He died on February 9, 1978 in Harrison, Maine, USA."
+      "Bio": "Bruce A. Evans is an American film director, producer and screenwriter best known for his work on Stand by Me (1986), Jungle 2 Jungle (1997) and Mr. Brooks (2007)."
   },
 },
 
