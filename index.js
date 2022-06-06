@@ -58,7 +58,7 @@ let movies = [
     "Director": {
       "Name": "Bruce A. Evans",
       "Birthyear": 1946,
-      "Bio": "Bruce A. Evans is an American film director, producer and screenwriter best known for his work on Stand by Me (1986), Jungle 2 Jungle (1997) and Mr. Brooks (2007)."
+      "Bio": "Bruce A. Evans is an American film director, producer and screenwriter best knwon for his work on Stand By Me (1986), Jungle 2 Jungle (1997) and Mr. Brooks (2007)."
   },
 },
 
