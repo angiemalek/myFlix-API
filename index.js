@@ -129,6 +129,81 @@ let movies = [
       "Bio": "Joseph Eggleston Johnston II is an American film director from Texas who is known for directing the cult classic film The Rocketeer, Jumanji, Honey, I Shrunk the Kids, The Wolfman, October Sky, The Pagemaster, Jurassic Park III and Captain America: The First Avenger. He was an art director for Raiders of the Lost Ark and the Star Wars original trilogy."
     },
   },
+
+  {
+    "Title":"Terminator 2: Judgment Day",
+    "Year": "1991",
+    "About": "A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her ten-year-old son John from a more advanced and powerful cyborg.",
+    "Genre": {
+      "Name": "Action",
+      "Description": "Action film is a film genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, and frantic chases.",
+    },
+    "Director": {
+      "Name": "James Cameron",
+      "Birthyear":"1954",
+      "Bio": "James Francis Cameron was born on August 16, 1954 in Kapuskasing, Ontario, Canada. He moved to the United States in 1971. The son of an engineer, he majored in physics at California State University before switching to English, and eventually dropping out. He then drove a truck to support his screenwriting ambition."
+    },
+  },
+
+  {
+    "Title":"Jumanji",
+    "Year": "1995",
+    "About": "When two kids find and play a magical board game, they release a man trapped in it for decades - and a host of dangers that can only be stopped by finishing the game.",
+    "Genre": {
+      "Name": "Adventure",
+      "Description": "An adventure film is form of adventure fiction, and is a genre of film. Subgenres of adventure films include swashbuckler films, pirate films, and survival films. Adventure films may also be combined with other film genres such as action, animation, comedy, drama, fantasy, science fiction, family, horror, or war.",
+    },
+    "Director": {
+      "Name": "Joe Johnston",
+      "Birthyear":"1950",
+      "Bio": "Joseph Eggleston Johnston II is an American film director from Texas who is known for directing the cult classic film The Rocketeer, Jumanji, Honey, I Shrunk the Kids, The Wolfman, October Sky, The Pagemaster, Jurassic Park III and Captain America: The First Avenger. He was an art director for Raiders of the Lost Ark and the Star Wars original trilogy."
+    },
+  },
+
+  {
+    "Title":"The Social Network",
+    "Year": "2010",
+    "About": "As Harvard student Mark Zuckerberg creates the social networking site that would become known as Facebook, he is sued by the twins who claimed he stole their idea, and by the co-founder who was later squeezed out of the business.",
+    "Genre": {
+      "Name": "Drama",
+      "Description": "A drama is a category or genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone.",
+    },
+    "Director": {
+      "Name": "David Fincher",
+      "Birthyear":"1962",
+      "Bio": "David Fincher was born in Denver, Colorado.  When he was 18 years old he went to work for Korty Films in Mill Valley.  He made commercials and eventually moved onto movies."
+    },
+  },
+
+  {
+    "Title":"Howls Moving Castle",
+    "Year": "2004",
+    "About": "When an unconfident young woman is cursed with an old body by a spiteful witch, her only chance of breaking the spell lies with a self-indulgent yet insecure young wizard and his companions in his legged, walking castle.",
+    "Genre": {
+      "Name": "Animation",
+      "Description": "Animation is a method in which figures are manipulated to appear as moving images. In traditional animation, images are drawn or painted by hand on transparent celluloid sheets to be photographed and exhibited on film.",
+    },
+    "Director": {
+      "Name": "Hayao Miyazaki",
+      "Birthyear":"1941",
+      "Bio": "Hayao Miyazaki was born in Tôkyô on January 5, 1941. He started his career in 1963 as an animator at the studio Toei Douga studio, and was subsequently involved in many early classics of Japanese animation. From the beginning, he commanded attention with his incredible drawing ability and the seemingly endless stream of movie ideas he proposed."
+    },
+  },
+
+  {
+    "Title":"Gremlins",
+    "Year": "1984",
+    "About": "A young man inadvertently breaks three important rules concerning his new pet and unleashes a horde of malevolently mischievous monsters on a small town.",
+    "Genre": {
+      "Name": "Fantasy",
+      "Description": "Fantasy films are films that belong to the fantasy genre with fantastic themes, usually magic, supernatural events, mythology, folklore, or exotic fantasy worlds. The genre is considered a form of speculative fiction alongside science fiction films and horror films, although the genres do overlap.",
+    },
+    "Director": {
+      "Name": "Joe Dante",
+      "Birthyear":"1946",
+      "Bio": "Joe Dante is a graduate of the Philadelphia College of Art. After a stint as a film reviewer, he began his filmmaking apprenticeship in 1974 as trailer editor for Roger Corman's New World Pictures. He made his directorial debut in 1976 with Hollywood Boulevard in 1976."
+    },
+  },
 ];
 
 
