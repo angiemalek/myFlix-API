@@ -19,7 +19,8 @@ let users = [
     name: "Richard",
     password: "ilovemovies",
     email: "richard@email.com",
-    birthday: "5-25-1995"
+    birthday: "5-25-1995",
+    favoriteMovies: [],
   },
 
   {
@@ -27,7 +28,8 @@ let users = [
     name: "Betty",
     password: "password123",
     email: "uglybetty@email.com",
-    birthday: "7-14-2005"
+    birthday: "7-14-2005",
+    favoriteMovies: [],
   },
 
   {
@@ -35,21 +37,24 @@ let users = [
     name: "Mark",
     password: "hellomoto456",
     email: "markymark@email.com",
-    birthday: "9-24-1984"
+    birthday: "9-24-1984",
+    favoriteMovies: [],
   },
   {
     id: 4,
     name: "Molly",
     password: "hellomolly",
     email: "mollymcbutter@email.com",
-    birthday: "6-18-1981"
+    birthday: "6-18-1981",
+    favoriteMovies: [],
   },
   {
     id: 5,
     name: "Hank",
     password: "cowdog123",
     email: "hankthecowdog@email.com",
-    birthday: "3-07-1975"
+    birthday: "3-07-1975",
+    favoriteMovies: [],
   }
 ];
 
