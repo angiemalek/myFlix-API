@@ -5,6 +5,14 @@ const express = require("express");
 
 const app = express();
 
+const mongoose = require("mongoose");
+const Models = require("./models.js");
+
+const Movies = Models.Movie;
+const Users = Modes.Users;
+
+mongoose.connect("mongodb://localhost:27017/myFlixDB", { useNewUrlParser: true, useUnifiedTopology: true });
+
 // USE BODY PARSER
 app.use(morgan("common"));
 
