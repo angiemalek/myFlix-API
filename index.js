@@ -250,7 +250,7 @@ app.post("/users", (req, res) => {
           .create({
             name: req.body.name,
             password: req.body.password,
-            email: req.body.password,
+            email: req.body.email,
             birthday: req.body.birthday
           })
         }
@@ -422,7 +422,7 @@ app.delete("users/name/:movieTitle", (req, res) => {
 
 // READ (GET) LIST OF ALL MOVIES MONGOOSE
 app.get("/movies", (req, res) => {
-  Movies.find()
+  Movie.find()
     .then((movies) => {
       res.status(201).json(movies);
     })
