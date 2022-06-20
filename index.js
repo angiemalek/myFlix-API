@@ -244,12 +244,12 @@ app.post("/users", (req, res) => {
       })
       .catch((error) => {
         console.error(error);
-        res.status(500).send("Error: " + error);
+        res.status(500).send("Error: " + err);
       });
 });
 
 app.get("/users", (req, res) => {
-  User.find()
+  Users.find()
     .then((users) => {
       res.status(201).json(users);
     })
