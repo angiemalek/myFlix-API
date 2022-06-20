@@ -11,7 +11,7 @@ const Models = require("./models.js");
 const Movies = Models.Movie;
 const Users = Models.User;
 
-mongoose.connect("mongodb://localhost:27017/myFlixDB", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb://localhost:27017/[myFlixDB]", { useNewUrlParser: true, useUnifiedTopology: true });
 
 // USE BODY PARSER
 app.use(morgan("common"));
@@ -331,7 +331,7 @@ app.delete("users/name/:movieTitle", (req, res) => {
 
 // READ (GET) LIST OF ALL MOVIES MONGOOSE
 app.get("/movies", (req, res) => {
-  Movie.find()
+  Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
     })
@@ -343,7 +343,7 @@ app.get("/movies", (req, res) => {
 
 // READ (GET) ONE MOVIE BY TITLE MONGOOSE
 app.get("movies/:movieTitle", (req, res) => {
-  Movie.findOne({ Title: req.params.title})
+  Movies.findOne({ Title: req.params.title})
     .then((movie) => {
       res.json(movie);
     })
