@@ -228,7 +228,7 @@ app.get("/", (req, res) => {
 
 // CREATE(POST) NEW USER MONGOOSE
 app.post("/users", (req, res) => {
-  User.findOne({ name: req.body.name })
+  Users.findOne({ name: req.body.name })
     .then((user) => {
       if (user) {
         return res.status(400).send(req.body.name + "already exists");
@@ -248,6 +248,7 @@ app.post("/users", (req, res) => {
       });
 });
 
+//GET REQUEST TO RETURN ALL USERS WORKS
 app.get("/users", (req, res) => {
   Users.find()
     .then((users) => {
@@ -259,7 +260,7 @@ app.get("/users", (req, res) => {
     });
 });
 
-//UPDATE USER INFO BY NAME MONGOOSE
+//UPDATE (PUT) USER INFO BY NAME MONGOOSE
 app.put("users/:name", (req, res) => {
   Users.findOneAndUpdate({ name: req.params.name },
     { $set:
@@ -329,7 +330,7 @@ app.delete("users/name/:movieTitle", (req, res) => {
     });
 });
 
-// READ (GET) LIST OF ALL MOVIES MONGOOSE
+// READ (GET) LIST OF ALL MOVIES MONGOOSE WORKS
 app.get("/movies", (req, res) => {
   Movies.find()
     .then((movies) => {
