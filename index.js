@@ -10,6 +10,8 @@ const Models = require("./models.js");
 
 const Movies = Models.Movie;
 const Users = Models.User;
+const Genres = Models.Genre;
+const Directors = Models.Director;
 
 mongoose.connect("mongodb://localhost:27017/[myFlixDB]", { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -226,26 +228,16 @@ app.get("/", (req, res) => {
   res.send("Welcome to my Movie App!");
 });
 
-// CREATE(POST) NEW USER MONGOOSE
-app.post("/users", (req, res) => {
-  Users.findOne({ name: req.body.name })
-    .then((user) => {
-      if (user) {
-        return res.status(400).send(req.body.name + "already exists");
-      } else {
-        users
-          .create({
-            name: req.body.name,
-            password: req.body.password,
-            email: req.body.email,
-            birthday: req.body.birthday
-          })
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-        res.status(500).send("Error: " + err);
-      });
+// READ (GET) LIST OF ALL MOVIES MONGOOSE WORKS
+app.get("/movies", (req, res) => {
+  Movies.find()
+    .then((movies) => {
+      res.status(201).json(movies);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error: " + err);
+    });
 });
 
 //GET REQUEST TO RETURN ALL USERS WORKS
@@ -260,15 +252,92 @@ app.get("/users", (req, res) => {
     });
 });
 
+//GET REQUEST TO RETURN USER BY USERNAME Works but keeps returning same user betty
+app.get("/users/:Name", (req, res) => {
+  Users.findOne({ Name: req.params.Name })
+    .then((user) => {
+      res.json(user);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error: " + err);
+    });
+});
+
+// READ (GET) ONE MOVIE BY TITLE MONGOOSE WORKS
+app.get("/movies/:Title", (req, res) => {
+  Movies.findOne({ Title: req.params.Title })
+    .then((movies) => {
+      res.json(movies);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error: " + err);
+    });
+});
+
+// RETURN (GET) DATA ABOUT A GENRE BY NAME/TITLE
+app.get("/movies/Genre/:Name", (req, res) => {
+  Movies.find({ "Genre.Name" : req.params.Name })
+    .then((genre) => {
+      res.json(genre)
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error: " + err);
+    });
+});
+
+//RETURN (GET) DATA ABOUT A DIRECTOR WORKS
+app.get("/movies/director/:Name", (req, res) => {
+  Movies.find({ "Director.Name" : req.params.Name})
+  .then((director) => {
+    res.json(director);
+  })
+  .catch((err) => {
+    console.error(err);
+    res.status(500).send("Error: " + err);
+  });
+});
+
+// CREATE(POST) NEW USER MONGOOSE
+app.post("/users", (req, res) => {
+  Users.findOne({ Name: req.body.Name })
+    .then((user) => {
+      if (user) {
+        return res.status(400).send(req.body.Name + "already exists");
+      } else {
+        Users
+          .create({
+            Name: req.body.Name,
+            Password: req.body.Password,
+            Email: req.body.Email,
+            Birthday: req.body.Birthday
+          })
+          .then((user) => {
+            res.status(201).json(user)
+          })
+          .catch((error) => {
+            console.error(err);
+            res.status(500).send("Error: " + err);
+          })
+        }
+      })
+      .catch((error) => {
+        console.error(err);
+        res.status(500).send("Error: " + err);
+      });
+});
+
 //UPDATE (PUT) USER INFO BY NAME MONGOOSE
-app.put("users/:name", (req, res) => {
-  Users.findOneAndUpdate({ name: req.params.name },
+app.put("/users/:Name", (req, res) => {
+  Users.findOneAndUpdate({ Name: req.params.Name },
     { $set:
       {
-        name: req.body.name,
-        password: req.body.password,
-        email: req.body.email,
-        birthday: req.body.birthday
+        Name: req.body.Name,
+        Password: req.body.Password,
+        Email: req.body.Email,
+        Birthday: req.body.Birthday
       }
     },
     { new: true },
@@ -283,13 +352,13 @@ app.put("users/:name", (req, res) => {
 });
 
 //DELETE USER BY USERNAME MONGOOSE
-app.delete("users/:name", (req, res) => {
-  Users.findOneAndRemove({ name: req.params.name })
+app.delete("/users/:Name", (req, res) => {
+  Users.findOneAndRemove({ Name: req.params.Name })
     .then((user) => {
       if (!user) {
-        res.status(400).send(req.params.name + " was not found");
+        res.status(400).send(req.params.Name + " was not found");
       } else {
-        res.status(200).send(req.params.name + " was deleted");
+        res.status(200).send(req.params.Name + " was deleted");
       }
     })
     .catch((err) => {
@@ -299,9 +368,9 @@ app.delete("users/:name", (req, res) => {
 });
 
 // CREATE (POST) ADD MOVIE TO USER FAVORITES BY MOVIE TITLE MONGOOSE
-app.post("users/name/movies/:movieTitle", (req,res) => {
-  Users.findOneAndUpdate({ name: req.params.name }, {
-    $push: { favoriteMovies: req.params.movieTitle}
+app.post("/users/:Name/movies/:Title", (req,res) => {
+  Users.findOneAndUpdate({ Name: req.params.Name }, {
+    $push: { favoriteMovies: req.params.Title}
     },
   { new: true },
   (err, updatedUser) => {
@@ -315,57 +384,21 @@ app.post("users/name/movies/:movieTitle", (req,res) => {
 });
 
 //DELETE MOVIE FROM USERS LIST BY MOVIE TITLE MONGOOSE
-app.delete("users/name/:movieTitle", (req, res) => {
-  Users.findOneAndRemove({ name: req.params.movieTitle })
-    .then((user) => {
-      if(!user) {
-        res.status(400).send(req.params.movieTitle + "was not found");
-      } else {
-        res.status(200).send(req.params.movieTitle + "was deleted");
-      }
-    })
-    .catch((err) => {
+app.delete("/users/:Name/movies/:Title", (req,res) => {
+  Users.findOneAndUpdate({ Name: req.params.Name }, {
+    $pull: { favoriteMovies: req.params.Title}
+    },
+  { new: true },
+  (err, updatedUser) => {
+    if (err) {
       console.error(err);
       res.status(500).send("Error: " + err);
-    });
+    } else {
+      res.json(updatedUser);
+    }
+  });
 });
 
-// READ (GET) LIST OF ALL MOVIES MONGOOSE WORKS
-app.get("/movies", (req, res) => {
-  Movies.find()
-    .then((movies) => {
-      res.status(201).json(movies);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send("Error: " + err);
-    });
-});
-
-// READ (GET) ONE MOVIE BY TITLE MONGOOSE
-app.get("movies/:movieTitle", (req, res) => {
-  Movies.findOne({ Title: req.params.title})
-    .then((movie) => {
-      res.json(movie);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send("Error: " + err);
-    });
-});
-
-
-//READ: GET DIRECTOR INFO BY NAME
-app.get("/movies/director/:directorName", (req, res) => {
-  const {directorName} = req.params;
-  const director = movies.find((movie) => movie.Director.Name === directorName).Director;
-
-  if (director) {
-    res.status(200).json(director);
-  } else {
-    res.status(400).send("No such director")
-  }
-});
 
 // ERROR EVENT HANDLER
 app.use((err, req, res, next) => {
