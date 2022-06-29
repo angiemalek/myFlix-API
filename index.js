@@ -10,8 +10,6 @@ const Models = require("./models.js");
 
 const Movies = Models.Movie;
 const Users = Models.User;
-const Genres = Models.Genre;
-const Directors = Models.Director;
 
 mongoose.connect("mongodb://localhost:27017/[myFlixDB]", { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -52,9 +50,9 @@ app.get("/users", (req, res) => {
     });
 });
 
-//GET REQUEST TO RETURN USER BY USERNAME  RETURNS NULL
-app.get("/users/:Name", (req, res) => {
-  Users.findOne({ Name: req.params.Name })
+//GET REQUEST TO RETURN USER BY USERNAME  ONLY RETURNS BETTY EVEN WHEN OTHER NAMES CALLED NEED TO REDO USRERS COLLECTION IN MONGO
+app.get("/:Name", (req, res) => {
+  Users.findOne({ Name : req.params.Name })
     .then((user) => {
       res.json(user);
     })
