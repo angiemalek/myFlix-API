@@ -25,10 +25,10 @@ app.use(express.static("public"));
 //GET REQUESTS  WORKS
 
 app.get("/", (req, res) => {
-  res.send("Welcome to my Movie App!");
+  res.send("Welcome to this awesome Movie App!");
 });
 
-// READ (GET) LIST OF ALL MOVIES MONGOOSE WORKS
+// READ (GET) LIST OF ALL MOVIES WORKS
 app.get("/movies", (req, res) => {
   Movies.find()
     .then((movies) => {
@@ -52,11 +52,11 @@ app.get("/users", (req, res) => {
     });
 });
 
-//GET REQUEST TO RETURN USER BY USERNAME Works but keeps returning same user betty
+//GET REQUEST TO RETURN USER BY USERNAME  RETURNS NULL
 app.get("/users/:Name", (req, res) => {
   Users.findOne({ Name: req.params.Name })
     .then((user) => {
-      res.json(users);
+      res.json(user);
     })
     .catch((err) => {
       console.error(err);
@@ -64,7 +64,7 @@ app.get("/users/:Name", (req, res) => {
     });
 });
 
-// READ (GET) ONE MOVIE BY TITLE MONGOOSE WORKS
+// READ (GET) ONE MOVIE BY TITLE WORKS
 app.get("/movies/:Title", (req, res) => {
   Movies.findOne({ Title: req.params.Title })
     .then((movies) => {
@@ -76,11 +76,11 @@ app.get("/movies/:Title", (req, res) => {
     });
 });
 
-// RETURN (GET) DATA ABOUT A GENRE BY NAME/TITLE
-app.get("movies/Genre/:Name", (req, res) => {
+// RETURN (GET) DATA ABOUT A GENRE BY NAME/TITLE WORKS
+app.get("/movies/Genre/:Name", (req, res) => {
   Movies.findOne({ "Genre.Name" : req.params.Name })
     .then((movie) => {
-      res.json(movie.Genre);
+      res.json(movie.Genre.Description);
     })
     .catch((err) => {
       console.error(err);
