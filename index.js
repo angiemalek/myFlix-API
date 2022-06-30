@@ -50,9 +50,9 @@ app.get("/users", (req, res) => {
     });
 });
 
-//GET REQUEST TO RETURN USER BY USERNAME  ONLY RETURNS BETTY EVEN WHEN OTHER NAMES CALLED NEED TO REDO USRERS COLLECTION IN MONGO
-app.get("/:Name", (req, res) => {
-  Users.findOne({ Name : req.params.Name })
+//GET REQUEST TO RETURN USER BY USERNAME  ONLY RETURNS SAME USER WHEN OTHER NAMES SEARCHED
+app.get("/users/:Username", (req, res) => {
+  Users.findOne({ Username : req.params.Username })
     .then((user) => {
       res.json(user);
     })
