@@ -20,6 +20,8 @@ app.use(bodyParser.json());
 
 app.use(express.static("public"));
 
+let auth = require("./auth")(app);
+
 //GET REQUESTS  WORKS
 
 app.get("/", (req, res) => {
