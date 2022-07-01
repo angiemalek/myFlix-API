@@ -50,7 +50,7 @@ app.get("/users", (req, res) => {
     });
 });
 
-//GET REQUEST TO RETURN USER BY USERNAME  ONLY RETURNS SAME USER WHEN OTHER NAMES SEARCHED
+//GET REQUEST TO RETURN USER BY USERNAME  WORKS
 app.get("/users/:Username", (req, res) => {
   Users.findOne({ Username : req.params.Username })
     .then((user) => {
@@ -100,14 +100,14 @@ app.get("/movies/Director/:Name", (req, res) => {
 
 // CREATE(POST) NEW USER MONGOOSE
 app.post("/users", (req, res) => {
-  Users.findOne({ Name: req.body.Name })
+  Users.findOne({ Username: req.body.Username })
     .then((user) => {
       if (user) {
-        return res.status(400).send(req.body.Name + "already exists");
+        return res.status(400).send(req.body.Username + "already exists");
       } else {
         Users
           .create({
-            Name: req.body.Name,
+            Userame: req.body.Username,
             Password: req.body.Password,
             Email: req.body.Email,
             Birthday: req.body.Birthday
@@ -128,11 +128,11 @@ app.post("/users", (req, res) => {
 });
 
 //UPDATE (PUT) USER INFO BY NAME MONGOOSE
-app.put("/users/:Name", (req, res) => {
-  Users.findOneAndUpdate({ Name: req.params.Name },
+app.put("/users/:Username", (req, res) => {
+  Users.findOneAndUpdate({ Username: req.params.Username },
     { $set:
       {
-        Name: req.body.Name,
+        Username: req.body.Username,
         Password: req.body.Password,
         Email: req.body.Email,
         Birthday: req.body.Birthday
@@ -150,13 +150,13 @@ app.put("/users/:Name", (req, res) => {
 });
 
 //DELETE USER BY USERNAME MONGOOSE
-app.delete("/users/:Name", (req, res) => {
-  Users.findOneAndRemove({ Name: req.params.Name })
+app.delete("/users/:Username", (req, res) => {
+  Users.findOneAndRemove({ Username: req.params.Username })
     .then((user) => {
       if (!user) {
-        res.status(400).send(req.params.Name + " was not found");
+        res.status(400).send(req.params.Username + " was not found");
       } else {
-        res.status(200).send(req.params.Name + " was deleted");
+        res.status(200).send(req.params.Username + " was deleted");
       }
     })
     .catch((err) => {
@@ -166,8 +166,8 @@ app.delete("/users/:Name", (req, res) => {
 });
 
 // CREATE (POST) ADD MOVIE TO USER FAVORITES BY MOVIE TITLE MONGOOSE
-app.post("/users/:Name/movies/:Title", (req,res) => {
-  Users.findOneAndUpdate({ Name: req.params.Name }, {
+app.post("/users/:Username/movies/:Title", (req,res) => {
+  Users.findOneAndUpdate({ Username: req.params.Username }, {
     $push: { favoriteMovies: req.params.Title}
     },
   { new: true },
@@ -182,8 +182,8 @@ app.post("/users/:Name/movies/:Title", (req,res) => {
 });
 
 //DELETE MOVIE FROM USERS LIST BY MOVIE TITLE MONGOOSE
-app.delete("/users/:Name/movies/:Title", (req,res) => {
-  Users.findOneAndUpdate({ Name: req.params.Name }, {
+app.delete("/users/:Username/movies/:Title", (req,res) => {
+  Users.findOneAndUpdate({ Username: req.params.Username }, {
     $pull: { favoriteMovies: req.params.Title}
     },
   { new: true },
