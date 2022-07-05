@@ -5,8 +5,6 @@ const express = require("express");
 
 const app = express();
 
-const passport = require("passport");
-
 const mongoose = require("mongoose");
 const Models = require("./models.js");
 
@@ -23,6 +21,9 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 
 let auth = require("./auth")(app);
+
+const passport = require("passport");
+require("./passport");
 
 //GET REQUESTS  WORKS
 
