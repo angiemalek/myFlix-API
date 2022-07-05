@@ -104,7 +104,7 @@ app.get("/movies/Director/:Name", passport.authenticate("jwt", {session: false})
 });
 
 // CREATE(POST) NEW USER MONGOOSE
-app.post("/users", passport.authenticate("jwt", {session: false}), (req, res) => {
+app.post("/users", (req, res) => {
   Users.findOne({ Username: req.body.Username })
     .then((user) => {
       if (user) {
@@ -112,10 +112,10 @@ app.post("/users", passport.authenticate("jwt", {session: false}), (req, res) =>
       } else {
         Users
           .create({
-            Userame: req.body.Username,
+            Username: req.body.Username,
             Password: req.body.Password,
             Email: req.body.Email,
-            Birthday: req.body.Birthday
+            FavoriteMovies: req.body.FavoriteMovies
           })
           .then((user) => {
             res.status(201).json(user)
@@ -140,7 +140,7 @@ app.put("/users/:Username", passport.authenticate("jwt", {session: false}), (req
         Username: req.body.Username,
         Password: req.body.Password,
         Email: req.body.Email,
-        Birthday: req.body.Birthday
+        FavoriteMovies: req.body.FavoriteMovies
       }
     },
     { new: true },
@@ -173,7 +173,7 @@ app.delete("/users/:Username", passport.authenticate("jwt", {session: false}), (
 // CREATE (POST) ADD MOVIE TO USER FAVORITES BY MOVIE TITLE MONGOOSE
 app.post("/users/:Username/movies/:Title", passport.authenticate("jwt", {session: false}), (req,res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, {
-    $push: { favoriteMovies: req.params.Title}
+    $push: { FavoriteMovies: req.params.Title}
     },
   { new: true },
   (err, updatedUser) => {
@@ -189,7 +189,7 @@ app.post("/users/:Username/movies/:Title", passport.authenticate("jwt", {session
 //DELETE MOVIE FROM USERS LIST BY MOVIE TITLE MONGOOSE
 app.delete("/users/:Username/movies/:Title", passport.authenticate("jwt", {session: false}), (req,res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, {
-    $pull: { favoriteMovies: req.params.Title}
+    $pull: { FavoriteMovies: req.params.Title}
     },
   { new: true },
   (err, updatedUser) => {
