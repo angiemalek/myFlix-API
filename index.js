@@ -14,7 +14,7 @@ const Users = Models.User;
 mongoose.connect("mongodb://localhost:27017/[myFlixDB]", { useNewUrlParser: true, useUnifiedTopology: true });
 
 // USE BODY PARSER
-const cors= require("cors");
+const cors= require("cors"); //Need to add domains allowed
 app.use(cors());
 
 let auth = require("./auth")(app);
