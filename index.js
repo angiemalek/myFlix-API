@@ -14,13 +14,16 @@ const Users = Models.User;
 mongoose.connect("mongodb://localhost:27017/[myFlixDB]", { useNewUrlParser: true, useUnifiedTopology: true });
 
 // USE BODY PARSER
+const cors= require("cors");
+app.use(cors());
+
+let auth = require("./auth")(app);
+
 app.use(morgan("common"));
 
 app.use(bodyParser.json());
 
 app.use(express.static("public"));
-
-let auth = require("./auth")(app);
 
 const passport = require("passport");
 require("./passport");
