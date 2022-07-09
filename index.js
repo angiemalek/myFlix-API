@@ -123,7 +123,7 @@ app.post("/users",
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.array() });
     }
-    
+
   let hashedPassword = Users.hashPassword(req.body.Password);
   Users.findOne({ Username: req.body.Username })
     .then((user) => {
@@ -231,6 +231,7 @@ app.use((err, req, res, next) => {
 
 
 // LISTEN FOR REQUESTS
-app.listen(8080, () => {
-  console.log("App is listening to port 8080");
+const port = process.env.PORT || 8080;
+app.listen(port, "0.0.0.0", () => {
+  console.log("Listening on Port" + port);
 });
